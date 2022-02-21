@@ -1,4 +1,5 @@
 rootProject.name = 'redis'
 
 include 'pub-sub'
+include 'streams'
 
