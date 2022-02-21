@@ -1,13 +1,10 @@
 package redis;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.websocket.server.PathParam;
 
 @RequiredArgsConstructor
 @RequestMapping("/redis")
@@ -16,8 +13,8 @@ public class RedisController {
     private final RedisService redisService;
 
     @GetMapping
-    public String sendAndGetMessage(@RequestParam(name ="message", defaultValue = "default msg") String message) {
-        redisService.send(new User(System.currentTimeMillis(),"Vaska"));
+    public String sendAndGetMessage(@RequestParam(name = "message", defaultValue = "default msg") String message) {
+        redisService.send(new User(System.currentTimeMillis(), "Vaska"));
         return message;
     }
 }

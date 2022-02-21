@@ -1,7 +1,6 @@
 package redis;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -21,8 +20,8 @@ public class RedisListener implements MessageListener {
         try {
             User user = objectMapper.readValue(message.toString(), User.class);
             log.info("received user:{}", user);
-            log.info("message toString:{}",message.toString());
-            log.info("message getBody:{}",message.getBody());
+            log.info("message toString:{}", message.toString());
+            log.info("message getBody:{}", message.getBody());
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
